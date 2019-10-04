@@ -45,7 +45,6 @@ public class BlackJackHand extends Hand {
 
 		for (Card card : cards) {
 			if (card != null) {
-				System.out.println(card);
 				value += card.getValue();
 			}
 
@@ -54,5 +53,19 @@ public class BlackJackHand extends Hand {
 		return value;
 
 	}
+	public Card printCards() {
+		Card cardOut = null;
+		for (Card card : cards) {
+			if (card != null) {
+				System.out.println(card);
+				
+			}
+			
+		}
+		
+		return cardOut;
+		
+	}
+	
 
 }

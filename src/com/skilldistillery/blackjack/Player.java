@@ -30,4 +30,7 @@ public class Player extends Participant {
 	public boolean checkBust() {
 		return playerHand.isBust();
 	}
+	public void newHand() {
+		playerHand.clearHand();
+	}
 }

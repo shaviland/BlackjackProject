@@ -75,8 +75,12 @@ public class Casino {
 		do {
 		System.out.println("Dealer hand is ");
 		System.out.println(dealer.checkHand() + " total.");
+		Card dealerCard = dealer.getCard();
+		dealer.gameHand(dealerCard);
+
 		if(dealer.checkHand() < 17) {
 			System.out.println("Dealer hits.");
+			
 			if(dealer.checkBust()) {
 				System.out.println("Dealer busts.");
 				break;
@@ -101,6 +105,8 @@ public class Casino {
 		if(again.equalsIgnoreCase("no") || again.equalsIgnoreCase("n")){
 			quit = true;
 		}else if(again.equalsIgnoreCase("yes") || again.equalsIgnoreCase("y")){
+			player.newHand();
+			dealer.newhand();
 			quit = false;
 		}else {
 			System.err.println("That is not a valid input");
