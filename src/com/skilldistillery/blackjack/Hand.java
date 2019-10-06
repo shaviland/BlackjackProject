@@ -22,9 +22,9 @@ public abstract class Hand {
 	public void addCard(Card cardsDealt) {
 		cards.add(cardsDealt);
 	}
-//	public void clearHand() {
-//		cards = null;
-//	}
+	public void clearHand() {
+		cards = new ArrayList<>();
+	}
 	public abstract int getHandValue();
 
 	@Override

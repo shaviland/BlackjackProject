@@ -21,9 +21,9 @@ public class Casino {
 
 	private void play() {
 		dealer.getDeck();
-		System.out.println("Dealer is shuffling the deck");
-		dealer.shuffle();
 		do {
+			System.out.println("Dealer is shuffling the deck");
+			dealer.shuffle();
 			Card playerCard1 = dealer.getCard();
 			System.out.println("Player is dealt " + playerCard1);
 			player.gameHand(playerCard1);
@@ -132,8 +132,8 @@ public class Casino {
 			System.out.println("Goodbye.");
 			quit = true;
 		} else if (again.equalsIgnoreCase("yes") || again.equalsIgnoreCase("y")) {
-//			player.newHand();
-//			dealer.newhand();
+			player.newHand();
+			dealer.newhand();
 			quit = false;
 		} else {
 			System.err.println("That is not a valid input");
