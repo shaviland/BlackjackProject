@@ -16,7 +16,7 @@ After the player chooses to stay, the dealer's play method is initiated. The Dea
 
  The winner of each round is determined by implementing the remaining rules of Blackjack (such as going over 21) and comparing hand values. The Player is then prompted to either play another hand or quit.
 
- ###Technologies/ Topics applied
+ ### Technologies/ Topics applied
  Abstract Class and inheritance for the participants of the game.
  Objects classes for the card, deck, player, and dealer.
  Enums to dictate the traits of the cards.
