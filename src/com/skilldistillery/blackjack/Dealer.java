@@ -49,7 +49,7 @@ public class Dealer extends Participant {
 	public boolean checkBust() {
 		return dealerHand.isBust();
 	}
-	public void newhand() {
+	public void newHand() {
 		dealerHand.clearHand();
 	}
 }

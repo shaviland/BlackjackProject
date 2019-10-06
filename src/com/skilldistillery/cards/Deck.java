@@ -14,7 +14,6 @@ public class Deck {
 
 			}
 		}
-//		shuffleCards(deck);
 		return deck;
 
 	}

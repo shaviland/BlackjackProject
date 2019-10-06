@@ -119,7 +119,7 @@ public class Casino {
 		if (dealer.checkHand() > player.checkHand() && !dealerBust || playerBust) {
 			System.out.println("Dealer wins");
 		} 
-		if (dealer.checkHand() < player.checkHand() && !playerBust || dealerBust){
+		if (dealer.checkHand() < player.checkHand() || dealerBust){
 			System.out.println("Player wins");
 		}
 		if (dealer.checkHand() == player.checkHand()) {
@@ -133,7 +133,7 @@ public class Casino {
 			quit = true;
 		} else if (again.equalsIgnoreCase("yes") || again.equalsIgnoreCase("y")) {
 			player.newHand();
-			dealer.newhand();
+			dealer.newHand();
 			quit = false;
 		} else {
 			System.err.println("That is not a valid input");
