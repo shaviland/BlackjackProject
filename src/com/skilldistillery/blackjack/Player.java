@@ -6,7 +6,7 @@ import java.util.List;
 import com.skilldistillery.cards.Card;
 
 public class Player extends Participant {
-	
+
 	private BlackJackHand playerHand = new BlackJackHand();
 
 	public BlackJackHand gameHand(Card card) {
@@ -18,9 +18,12 @@ public class Player extends Participant {
 
 	@Override
 	public int checkHand() {
-		
 		return playerHand.getHandValue();
 
+	}
+
+	public void printHand() {
+		playerHand.printCards();
 	}
 
 	public boolean checkBlackJack() {
@@ -30,6 +33,7 @@ public class Player extends Participant {
 	public boolean checkBust() {
 		return playerHand.isBust();
 	}
+
 	public void newHand() {
 		playerHand.clearHand();
 	}

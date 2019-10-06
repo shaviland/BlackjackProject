@@ -36,7 +36,9 @@ public class Dealer extends Participant {
 	return dealerHand.getHandValue();
 
 	}
-
+	public void printHand() {
+		dealerHand.printCards();
+	}
 	public boolean checkBlackJack() {
 		return dealerHand.isBlackJack();
 	}
