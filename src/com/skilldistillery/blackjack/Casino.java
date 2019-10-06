@@ -9,6 +9,8 @@ public class Casino {
 	Player player = new Player();
 	static Scanner kb = new Scanner(System.in);
 	boolean quit = false;
+	boolean playerBust = false;
+	boolean dealerBust = false;
 
 	public static void main(String[] args) {
 		Casino cas = new Casino();
@@ -38,9 +40,17 @@ public class Casino {
 			dealer.gameHand(dealerCard2);
 
 			if (dealer.checkBlackJack()) {
+				dealer.printHand();
 				System.out.println("Dealer: BlackJack");
+				endGame(player, dealer, playerBust);
 			}
-			boolean playerBust = playerTurn(player);
+			if(player.checkBlackJack()) {
+				player.printHand();
+				System.out.println("Player: BlackJack");
+				endGame(player, dealer, playerBust);
+			}
+			playerTurn(player);
+			
 			if (!playerBust) {
 				dealerTurn(dealer);
 			}
@@ -49,9 +59,8 @@ public class Casino {
 
 	}
 
-	private boolean playerTurn(Player player) {
+	private void playerTurn(Player player) {
 		do {
-			System.out.println("Player hand is ");
 			player.printHand();
 			System.out.println(player.checkHand() + " total.");
 			System.out.println("Hit or Stay?");
@@ -62,9 +71,11 @@ public class Casino {
 				player.gameHand(playerCard);
 				if (player.checkBust()) {
 					System.out.println("Player is dealt " + playerCard);
+					player.printHand();
 					System.out.println(player.checkHand());
-					System.out.println("Player busts.");
-					return true;
+					System.out.println("Player busts");
+					playerBust = true;
+					break;
 
 				}
 			} else if (playerChoice.equalsIgnoreCase("stay")) {
@@ -74,30 +85,29 @@ public class Casino {
 			}
 
 		} while (true);
-		return false;
 	}
 
 	private void dealerTurn(Dealer dealer) {
 		while(dealer.checkHand() <= 21) {
-			System.out.println("Dealer hand is ");
 			dealer.printHand();
 			System.out.println(dealer.checkHand() + " total.");
 
-			if (dealer.checkHand() < 17) {
-				System.out.println("Dealer hits.");
+			while (dealer.checkHand() < 17) {
+				System.out.println("Dealer hits");
 				Card dealerCard = dealer.getCard();
 				dealer.gameHand(dealerCard);
+				dealer.printHand();
+				System.out.println(dealer.checkHand());
 
 				if (dealer.checkBust()) {
-					System.out.println("Dealer shows " + dealerCard);
-					System.out.println(dealer.checkHand());
-					System.out.println("Dealer busts.");
+					System.out.println("Dealer busts");
+					dealerBust = true;
 					break;
 					
 				}
 			}
 			if (dealer.checkHand() >= 17 && dealer.checkHand() <= 21) {
-				System.out.println("Dealer stays.");
+				System.out.println("Dealer stays");
 				break;
 			}
 
@@ -106,17 +116,20 @@ public class Casino {
 
 	private void endGame(Player player, Dealer dealer, boolean playerBust) {
 
-		if (dealer.checkHand() > player.checkHand() || playerBust) {
+		if (dealer.checkHand() > player.checkHand() && !dealerBust || playerBust) {
 			System.out.println("Dealer wins");
-		} else if (dealer.checkHand() < player.checkHand()) {
-			System.out.println("Player wins.");
-		} else if (dealer.checkHand() == player.checkHand()) {
-			System.out.println("It's a draw.");
+		} 
+		if (dealer.checkHand() < player.checkHand() && !playerBust || dealerBust){
+			System.out.println("Player wins");
+		}
+		if (dealer.checkHand() == player.checkHand()) {
+			System.out.println("It's a draw");
 		}
 
 		System.out.println("Another hand?");
 		String again = kb.nextLine();
 		if (again.equalsIgnoreCase("no") || again.equalsIgnoreCase("n")) {
+			System.out.println("Goodbye.");
 			quit = true;
 		} else if (again.equalsIgnoreCase("yes") || again.equalsIgnoreCase("y")) {
 //			player.newHand();
@@ -124,6 +137,7 @@ public class Casino {
 			quit = false;
 		} else {
 			System.err.println("That is not a valid input");
+			quit = true;
 		}
 
 	}

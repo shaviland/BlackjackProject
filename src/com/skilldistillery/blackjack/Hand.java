@@ -19,12 +19,12 @@ public abstract class Hand {
 		this.cards = cards;
 	}
 
-	public void clearHand() {
-		
-	}
 	public void addCard(Card cardsDealt) {
 		cards.add(cardsDealt);
 	}
+//	public void clearHand() {
+//		cards = null;
+//	}
 	public abstract int getHandValue();
 
 	@Override

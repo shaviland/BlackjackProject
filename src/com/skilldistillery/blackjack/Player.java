@@ -1,14 +1,12 @@
 package com.skilldistillery.blackjack;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.skilldistillery.cards.Card;
 
 public class Player extends Participant {
 
 	private BlackJackHand playerHand = new BlackJackHand();
 
+	
 	public BlackJackHand gameHand(Card card) {
 
 		playerHand.addCard(card);
@@ -23,6 +21,7 @@ public class Player extends Participant {
 	}
 
 	public void printHand() {
+		System.out.println("players hand: ");
 		playerHand.printCards();
 	}
 
@@ -33,8 +32,7 @@ public class Player extends Participant {
 	public boolean checkBust() {
 		return playerHand.isBust();
 	}
-
-	public void newHand() {
-		playerHand.clearHand();
-	}
+//	public void newHand() {
+//		playerHand = null;
+//	}
 }

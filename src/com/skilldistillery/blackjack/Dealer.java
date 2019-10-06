@@ -23,6 +23,8 @@ public class Dealer extends Participant {
 
 	}
 	
+
+	
 	public BlackJackHand gameHand(Card card) {
 		
 		dealerHand.addCard(card);
@@ -37,6 +39,7 @@ public class Dealer extends Participant {
 
 	}
 	public void printHand() {
+		System.out.println("Dealers hand: ");
 		dealerHand.printCards();
 	}
 	public boolean checkBlackJack() {
@@ -46,7 +49,7 @@ public class Dealer extends Participant {
 	public boolean checkBust() {
 		return dealerHand.isBust();
 	}
-	public void newhand() {
-		dealerHand.clearHand();
-	}
+//	public void newhand() {
+//		dealerHand = null;
+//	}
 }
