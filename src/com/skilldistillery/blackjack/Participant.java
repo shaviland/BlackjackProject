@@ -4,17 +4,12 @@ public abstract class Participant {
 
 	public abstract int checkHand();
 
-	public void hit() {
+	public abstract void printHand();
+	
+	public abstract boolean checkBlackJack();
 		
-		// TODO add code to request a card from the dealer
-		
-		
-	}
-
-	public void stay() {
-		// TODO add code to have dealer continue to next play.
-
-	}
-
+	public abstract boolean checkBust();
+	
+	public abstract void newHand();
 
 }
