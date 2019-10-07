@@ -5,12 +5,12 @@ import java.util.Scanner;
 import com.skilldistillery.cards.Card;
 
 public class Casino {
-	Dealer dealer = new Dealer();
-	Player player = new Player();
-	static Scanner kb = new Scanner(System.in);
-	boolean quit = false;
-	boolean playerBust = false;
-	boolean dealerBust = false;
+	private Dealer dealer = new Dealer();
+	private Player player = new Player();
+	private static Scanner kb = new Scanner(System.in);
+	private boolean quit = false;
+	private boolean playerBust = false;
+	private boolean dealerBust = false;
 
 	public static void main(String[] args) {
 		Casino cas = new Casino();
@@ -118,11 +118,9 @@ public class Casino {
 
 		if (dealer.checkHand() > player.checkHand() && !dealerBust || playerBust) {
 			System.out.println("Dealer wins");
-		} 
-		if (dealer.checkHand() < player.checkHand() && !playerBust || dealerBust){
+		} else if (dealer.checkHand() < player.checkHand() && !playerBust || dealerBust){
 			System.out.println("Player wins");
-		}
-		if (dealer.checkHand() == player.checkHand()) {
+		}else if (dealer.checkHand() == player.checkHand()) {
 			System.out.println("Push");
 		}
 
