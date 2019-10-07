@@ -118,9 +118,11 @@ public class Casino {
 
 		if (dealer.checkHand() > player.checkHand() && !dealerBust || playerBust) {
 			System.out.println("Dealer wins");
-		} else if (dealer.checkHand() < player.checkHand() && !playerBust || dealerBust){
+		}
+		if (dealer.checkHand() < player.checkHand() && !playerBust || dealerBust){
 			System.out.println("Player wins");
-		}else if (dealer.checkHand() == player.checkHand()) {
+		}
+		if (dealer.checkHand() == player.checkHand()) {
 			System.out.println("Push");
 		}
 
