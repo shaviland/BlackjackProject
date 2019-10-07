@@ -123,7 +123,7 @@ public class Casino {
 			System.out.println("Player wins");
 		}
 		if (dealer.checkHand() == player.checkHand()) {
-			System.out.println("It's a draw");
+			System.out.println("Push");
 		}
 
 		System.out.println("Another hand?");
